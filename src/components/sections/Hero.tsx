@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 import { motion } from "framer-motion";
 import BrandLogo from "@/components/ui/BrandLogo";
