@@ -32,7 +32,7 @@ export default function Testimonials() {
               className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm"
             >
               <p className="text-base md:text-lg text-white/90">{testimonials[index].text}</p>
-              <div className="mt-3 text-white/70">— {testimonials[index].name} • {testimonials[index].course}</div>
+              <div className="mt-3 text-white/70">— {testimonials[index].name}</div>
             </motion.div>
           </AnimatePresence>
         </div>
