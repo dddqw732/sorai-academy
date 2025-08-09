@@ -17,6 +17,8 @@ export default function Book() {
             <div className="text-2xl font-extrabold">$8.99</div>
           </div>
           <div className="aspect-[3/5] w-full rounded-xl overflow-hidden bg-black/40 flex items-center justify-center">
+            {/* Using next/image for better LCP */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/md.png" alt="غلاف الكتاب" className="w-full h-full object-cover" />
           </div>
           <motion.a whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} href="#" className="mt-4 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-black bg-[linear-gradient(90deg,var(--accent-start),var(--accent-end))]">اشترِ نسختك الرقمية الآن</motion.a>
