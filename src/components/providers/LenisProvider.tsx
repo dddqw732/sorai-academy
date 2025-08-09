@@ -1,17 +1,18 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Lenis from "@studio-freight/lenis";
+import Lenis, { LenisOptions } from "@studio-freight/lenis";
 
 export default function LenisProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    const lenis = new Lenis({
+    const options: Partial<LenisOptions> = {
       duration: 1.05,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       // Do not lock body on mobile
       gestureOrientation: "vertical",
-    } as any);
+    };
+    const lenis = new Lenis(options as LenisOptions);
 
     function raf(time: number) {
       lenis.raf(time);
@@ -21,7 +22,8 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     return () => {
       cancelAnimationFrame(id);
       // restore default scrolling
-      (lenis as any).destroy?.();
+      // @ts-expect-error destroy exists at runtime
+      lenis.destroy?.();
     };
   }, []);
 
