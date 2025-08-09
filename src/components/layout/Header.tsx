@@ -7,7 +7,7 @@ export default function Header() {
     <header className="fixed top-0 inset-x-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur-xl">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between max-w-6xl">
         <a href="#" className="flex items-center gap-3">
-          <BrandLogo size={28} />
+          <BrandLogo size={36} />
           <span className="font-semibold">Sorai Academy</span>
         </a>
         <nav className="hidden md:flex items-center gap-6 text-sm">

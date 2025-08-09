@@ -15,14 +15,14 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center"
         >
-          <div className="mx-auto mb-6 flex justify-center">
-            <BrandLogo size={144} />
+          <div className="mx-auto mb-10 flex justify-center">
+            <BrandLogo size={208} />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold leading-tight gradient-text">
             تعلم. ابتكر. أنجز — Sorai Academy
           </h1>
-          <p className="mt-5 text-base md:text-lg text-white/80 max-w-2xl mx-auto">
-            نتخصّص في تعليم اللغتين اليابانية والكورية بمسارات عملية من المبتدئ إلى المتقدم، بإشراف مدرّسين خبراء وتمارين تفاعلية.
+          <p className="mt-5 text-base md:text-lg text-white/85 max-w-2xl mx-auto">
+            نقدم تجربة تعلم لغوية متكاملة تساعدك على إتقان اليابانية والكورية بشكل عملي وسلس — من البداية حتى الطلاقة.
           </p>
 
           <motion.a
@@ -33,6 +33,12 @@ export default function Hero() {
           >
             ابدأ الآن
           </motion.a>
+
+          {/* Decorative gradient ring */}
+          <div className="relative mx-auto mt-10 w-60 h-60">
+            <div className="absolute inset-0 rounded-full opacity-20" style={{ background: "radial-gradient(closest-side, rgba(36,72,255,0.35), transparent 70%)" }} />
+            <div className="absolute inset-6 rounded-full opacity-20" style={{ background: "radial-gradient(closest-side, rgba(255,43,43,0.35), transparent 70%)" }} />
+          </div>
         </motion.div>
       </div>
     </section>

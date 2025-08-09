@@ -8,6 +8,7 @@ import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
+import Book from "@/components/sections/Book";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <About />
       <Courses />
+      <Book />
       <Testimonials />
       <FAQ />
       <CTA />
