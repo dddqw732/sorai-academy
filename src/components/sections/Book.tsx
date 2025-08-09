@@ -21,7 +21,7 @@ export default function Book() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/md.png" alt="غلاف الكتاب" className="w-full h-full object-cover" />
           </div>
-          <motion.a whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} href="#" className="mt-4 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-black bg-[linear-gradient(90deg,var(--accent-start),var(--accent-end))]">اشترِ نسختك الرقمية الآن</motion.a>
+          <motion.a whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} href="https://on-go-shop.fourthwall.com/products/ktb-dlylk-l-llgh-lybny?source=dashboard" className="mt-4 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold text-black bg-[linear-gradient(90deg,var(--accent-start),var(--accent-end))]">اشترِ نسختك الرقمية الآن</motion.a>
           <div className="mt-3 flex items-center gap-4 text-xs text-white/60">
             <div>Easy download</div>
             <div>5 of 5 reviews</div>

@@ -15,7 +15,7 @@ export default function Header() {
           <a className="hover:text-white" href="#testimonials">آراء الطلاب</a>
           <a className="hover:text-white" href="#contact">اتصل بنا</a>
         </nav>
-        <a href="#courses" className="rounded-full px-6 py-3 text-base font-semibold text-black bg-[linear-gradient(90deg,var(--accent-start),var(--accent-end))] shadow-[0_0_24px_rgba(36,72,255,0.25)]">سجّل الآن</a>
+        <a href="https://wa.me/966538325090" className="rounded-full px-6 py-3 text-base font-semibold text-black bg-[linear-gradient(90deg,var(--accent-start),var(--accent-end))] shadow-[0_0_24px_rgba(36,72,255,0.25)]">سجّل الآن</a>
       </div>
     </header>
   );

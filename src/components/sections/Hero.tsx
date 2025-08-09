@@ -26,7 +26,7 @@ export default function Hero() {
           </p>
 
           <motion.a
-            href="#courses"
+            href="https://wa.me/966538325090"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center justify-center mt-10 rounded-full px-8 py-4 text-lg font-semibold text-black bg-[linear-gradient(90deg,var(--accent-start),var(--accent-end))] shadow-[0_0_30px_rgba(36,72,255,0.18)] hover:shadow-[0_0_55px_rgba(255,43,43,0.25)] transition-shadow"

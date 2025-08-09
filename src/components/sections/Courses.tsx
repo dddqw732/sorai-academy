@@ -37,21 +37,21 @@ const courses = [
     level: "مبتدئ",
     price: 200,
     title: "الكورية للمبتدئين",
-    desc: "أساسيات الهانغول والنطق والتعابير اليومية.",
+    desc: "أساسيات الحروف والنطق والمحادثة البسيطة.",
   },
   {
     lang: "الكورية",
     level: "متوسط",
     price: 399,
     title: "الكورية المستوى المتوسط",
-    desc: "قواعد ومحادثات متقدمة ومفردات مهنية.",
+    desc: "قواعد متقدمة ومحادثات حياتية وتوسيع المفردات.",
   },
   {
     lang: "الكورية",
     level: "متقدم",
     price: 399,
     title: "الكورية المستوى المتقدم",
-    desc: "إتقان المحادثة وقراءة محتوى أصلي.",
+    desc: "طلاقة في المحادثة وقراءة نصوص متخصصة.",
   },
   {
     lang: "الكورية",
@@ -65,7 +65,7 @@ const courses = [
 import React from "react";
 
 export default function Courses() {
-  const [tab, setTab] = React.useState<"اليابانية" | "الكورية" | "الكل">("الكل");
+  const [tab, setTab] = React.useState<"اليابانية" | "الكورية" | "الكل">("اليابانية");
   const filtered = courses.filter((c) => (tab === "الكل" ? true : c.lang === tab));
 
   return (
@@ -105,21 +105,27 @@ export default function Courses() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               whileHover={{ y: -8 }}
             >
-              <TiltCard className="group rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm shadow-[0_0_0_rgba(0,0,0,0)] hover:shadow-[0_20px_60px_rgba(36,72,255,0.15)] transition">
-                <div className="h-32 rounded-xl mb-4 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(120px_80px_at_50%_40%,rgba(36,72,255,0.28),transparent)] group-hover:bg-[radial-gradient(160px_100px_at_50%_40%,rgba(255,43,43,0.3),transparent)] transition" />
-                  {/* subtle cultural icons */}
-                  <div className="absolute inset-0 opacity-60 [mask-image:radial-gradient(white,transparent_70%)] pointer-events-none">
-                    <div className="absolute top-2 left-3 text-xs">⛩️</div>
-                    <div className="absolute top-3 right-4 text-xs">🎌</div>
-                    <div className="absolute bottom-3 left-4 text-xs">한</div>
-                    <div className="absolute bottom-2 right-3 text-xs">ㅇ</div>
+              <TiltCard className="group relative rounded-2xl p-[1px] bg-gradient-to-br from-[var(--accent-start)]/40 to-[var(--accent-end)]/40 hover:from-[var(--accent-start)] hover:to-[var(--accent-end)] transition">
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-5 h-full backdrop-blur-sm">
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-black/50 border border-white/10">{c.lang}</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 border border-white/10">{c.level}</span>
+                    </div>
+                    {/* price moved below */}
                   </div>
-                  <div className="absolute bottom-2 right-2 text-[10px] px-2 py-0.5 rounded-full bg-black/50 border border-white/10">{c.lang}</div>
+
+                  <h3 className="text-lg font-semibold mb-1">{c.title}</h3>
+                  <p className="text-sm text-white/70 mb-4 min-h-[44px]">{c.desc}</p>
+                  <div className="text-base text-white/90 font-semibold mb-3">{c.price} ريال</div>
+
+                  <a
+                    href={`https://wa.me/966538325090?text=${encodeURIComponent('مرحباً، أود التسجيل في دورة ' + c.title)}`}
+                    className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white bg-[linear-gradient(90deg,var(--accent-start),var(--accent-end))] shadow-[0_0_20px_rgba(36,72,255,0.2)] hover:shadow-[0_0_35px_rgba(255,43,43,0.25)] transition"
+                  >
+                    سجّل الآن
+                  </a>
                 </div>
-                <div className="text-xs text-white/60 mb-1">{c.lang} • {c.level}</div>
-                <h3 className="text-lg font-semibold mb-1">{c.title}</h3>
-                <div className="text-base text-white/90 font-semibold">{c.price} ريال</div>
               </TiltCard>
             </motion.div>
           ))}
