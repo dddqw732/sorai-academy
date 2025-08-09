@@ -22,8 +22,7 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     return () => {
       cancelAnimationFrame(id);
       // restore default scrolling
-      // @ts-expect-error destroy exists at runtime
-      lenis.destroy?.();
+      (lenis as unknown as { destroy?: () => void }).destroy?.();
     };
   }, []);
 
