@@ -4,6 +4,7 @@ import "./globals.css";
 import LenisProvider from "@/components/providers/LenisProvider";
 import Header from "@/components/layout/Header";
 import ParticlesBackground from "@/components/backgrounds/Particles";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
           <ParticlesBackground />
           <Header />
           <div className="pt-16">{children}</div>
+          <Analytics />
         </LenisProvider>
       </body>
     </html>
