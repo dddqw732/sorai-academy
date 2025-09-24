@@ -1,75 +1,84 @@
-﻿"use client";
+"use client";
 
 import { motion } from "framer-motion";
 import TiltCard from "@/components/ui/TiltCard";
 
-const courses = [
+type Course = {
+  lang: "اليابانية" | "الكورية";
+  level: string;
+  price: number;
+  title: string;
+  desc: string;
+  duration?: string;
+};
+
+const courses: Course[] = [
   {
-    lang: "Ø§Ù„ÙŠØ§Ø¨Ø§Ù†ÙŠØ©",
-    level: "Ù…Ø¨ØªØ¯Ø¦",
-    duration: "3 Ø£Ø³Ø§Ø¨ÙŠØ¹",
+    lang: "اليابانية",
+    level: "مبتدئ",
+    duration: "3 أسابيع",
     price: 260,
-    title: "Ø§Ù„ÙŠØ§Ø¨Ø§Ù†ÙŠØ© Ù„Ù„Ù…Ø¨ØªØ¯Ø¦ÙŠÙ†",
-    desc: "ØªØ¹Ù„Ù… Ø§Ù„Ù‡ÙŠØ±Ø§ØºØ§Ù†Ø§ ÙˆØ§Ù„ÙƒØ§ØªØ§ÙƒØ§Ù†Ø§ØŒ ØªØµØ±ÙŠÙ Ø§Ù„Ø£ÙØ¹Ø§Ù„ Ø§Ù„Ø£Ø³Ø§Ø³ÙŠØ©ØŒ Ù…Ø­Ø§Ø¯Ø«Ø§Øª ÙŠÙˆÙ…ÙŠØ© Ø¨Ø³ÙŠØ·Ø©ØŒ Ø§Ù„Ø£Ø±Ù‚Ø§Ù… ÙˆØ§Ù„Ø£ÙŠØ§Ù… ÙˆØ§Ù„Ø´Ù‡ÙˆØ±.",
+    title: "اليابانية للمبتدئين",
+    desc: "تعلم الهيراغانا والكاتاكانا، تصريف الأفعال الأساسية، محادثات يومية بسيطة، الأرقام والأيام والشهور.",
   },
   {
-    lang: "Ø§Ù„ÙŠØ§Ø¨Ø§Ù†ÙŠØ©",
-    level: "Ù…ØªÙˆØ³Ø·",
-    duration: "40 ÙŠÙˆÙ…",
+    lang: "اليابانية",
+    level: "متوسط",
+    duration: "40 يوم",
     price: 750,
-    title: "Ø§Ù„ÙŠØ§Ø¨Ø§Ù†ÙŠØ© Ø§Ù„Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ù…ØªÙˆØ³Ø·",
-    desc: "Ù…Ù†Ù‡Ø¬ Genki 1ØŒ Ù‚ÙˆØ§Ø¹Ø¯ Ø£ÙƒØ«Ø± ØªØ¹Ù‚ÙŠØ¯Ù‹Ø§ ÙˆØªØµØ±ÙŠÙØ§Øª Ù…ØªÙ†ÙˆØ¹Ø©ØŒ ØªÙˆØ³ÙŠØ¹ Ø§Ù„Ù…Ø­Ø§Ø¯Ø«Ø§Øª Ø§Ù„ÙŠÙˆÙ…ÙŠØ©ØŒ Ù…Ù…Ø§Ø±Ø³Ø© Ø§Ù„Ø§Ø³ØªÙ…Ø§Ø¹ ÙˆØ§Ù„ÙƒØªØ§Ø¨Ø©.",
+    title: "اليابانية المستوى المتوسط",
+    desc: "منهج Genki 1، قواعد أكثر تعقيدًا وتصريفات متنوعة، توسيع المحادثات اليومية، ممارسة الاستماع والكتابة.",
   },
   {
-    lang: "Ø§Ù„ÙŠØ§Ø¨Ø§Ù†ÙŠØ©",
-    level: "Ù…ØªÙ‚Ø¯Ù…",
-    duration: "30 ÙŠÙˆÙ…",
+    lang: "اليابانية",
+    level: "متقدم",
+    duration: "30 يوم",
     price: 760,
-    title: "Ø§Ù„ÙŠØ§Ø¨Ø§Ù†ÙŠØ© Ø§Ù„Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…",
-    desc: "Ù…Ù†Ù‡Ø¬ Genki 2ØŒ ØªØ¹Ø¨ÙŠØ±Ø§Øª Ù…ØªÙ‚Ø¯Ù…Ø© ÙˆØªØµØ±ÙŠÙØ§Øª Ù…Ø¹Ù‚Ø¯Ø©ØŒ Ù‚Ø±Ø§Ø¡Ø© Ù†ØµÙˆØµ Ø£Ø·ÙˆÙ„ ÙˆÙ…Ø­Ø§Ø¯Ø«Ø§Øª Ø£ÙƒØ«Ø± ØªØ¹Ù‚ÙŠØ¯Ù‹Ø§ØŒ ØªØ·ÙˆÙŠØ± Ù…Ù‡Ø§Ø±Ø§Øª Ø§Ù„Ø§Ø³ØªÙ…Ø§Ø¹ ÙˆØ§Ù„ÙÙ‡Ù….",
+    title: "اليابانية المستوى المتقدم",
+    desc: "منهج Genki 2، تعبيرات متقدمة وتصريفات معقدة، قراءة نصوص أطول ومحادثات أكثر تعقيدًا، تطوير مهارات الاستماع والفهم.",
   },
   {
-    lang: "Ø§Ù„ÙŠØ§Ø¨Ø§Ù†ÙŠØ©",
-    level: "Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø³ØªÙˆÙŠØ§Øª",
+    lang: "اليابانية",
+    level: "جميع المستويات",
     price: 1600,
-    title: "Ø­Ø²Ù…Ø© Ø§Ù„ÙŠØ§Ø¨Ø§Ù†ÙŠØ© Ø§Ù„Ø´Ø§Ù…Ù„Ø©",
-    desc: "ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø³ØªÙˆÙŠØ§Øª Ø¨ØªÙƒÙ„ÙØ© Ù…Ø®ÙØ¶Ø©.",
+    title: "حزمة اليابانية الشاملة",
+    desc: "وصول إلى جميع المستويات بتكلفة مخفضة.",
   },
   {
-    lang: "Ø§Ù„ÙƒÙˆØ±ÙŠØ©",
-    level: "Ù…Ø¨ØªØ¯Ø¦",
+    lang: "الكورية",
+    level: "مبتدئ",
     price: 260,
-    title: "Ø§Ù„ÙƒÙˆØ±ÙŠØ© Ù„Ù„Ù…Ø¨ØªØ¯Ø¦ÙŠÙ†",
-    desc: "Ø£Ø³Ø§Ø³ÙŠØ§Øª Ø§Ù„Ø­Ø±ÙˆÙ ÙˆØ§Ù„Ù†Ø·Ù‚ ÙˆØ§Ù„Ù…Ø­Ø§Ø¯Ø«Ø© Ø§Ù„Ø¨Ø³ÙŠØ·Ø©.",
+    title: "الكورية للمبتدئين",
+    desc: "أساسيات الحروف والنطق والمحادثة البسيطة.",
   },
   {
-    lang: "Ø§Ù„ÙƒÙˆØ±ÙŠØ©",
-    level: "Ù…ØªÙˆØ³Ø·",
+    lang: "الكورية",
+    level: "متوسط",
     price: 640,
-    title: "Ø§Ù„ÙƒÙˆØ±ÙŠØ© Ø§Ù„Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ù…ØªÙˆØ³Ø·",
-    desc: "Ù‚ÙˆØ§Ø¹Ø¯ Ù…ØªÙ‚Ø¯Ù…Ø© ÙˆÙ…Ø­Ø§Ø¯Ø«Ø§Øª Ø­ÙŠØ§ØªÙŠØ© ÙˆØªÙˆØ³ÙŠØ¹ Ø§Ù„Ù…ÙØ±Ø¯Ø§Øª.",
+    title: "الكورية المستوى المتوسط",
+    desc: "قواعد متقدمة ومحادثات حياتية وتوسيع المفردات.",
   },
   {
-    lang: "Ø§Ù„ÙƒÙˆØ±ÙŠØ©",
-    level: "Ù…ØªÙ‚Ø¯Ù…",
+    lang: "الكورية",
+    level: "متقدم",
     price: 650,
-    title: "Ø§Ù„ÙƒÙˆØ±ÙŠØ© Ø§Ù„Ù…Ø³ØªÙˆÙ‰ Ø§Ù„Ù…ØªÙ‚Ø¯Ù…",
-    desc: "Ø·Ù„Ø§Ù‚Ø© ÙÙŠ Ø§Ù„Ù…Ø­Ø§Ø¯Ø«Ø© ÙˆÙ‚Ø±Ø§Ø¡Ø© Ù†ØµÙˆØµ Ù…ØªØ®ØµØµØ©.",
+    title: "الكورية المستوى المتقدم",
+    desc: "طلاقة في المحادثة وقراءة نصوص متخصصة.",
   },
   {
-    lang: "Ø§Ù„ÙƒÙˆØ±ÙŠØ©",
-    level: "Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø³ØªÙˆÙŠØ§Øª",
+    lang: "الكورية",
+    level: "جميع المستويات",
     price: 1400,
-    title: "Ø­Ø²Ù…Ø© Ø§Ù„ÙƒÙˆØ±ÙŠØ© Ø§Ù„Ø´Ø§Ù…Ù„Ø©",
-    desc: "ÙˆØµÙˆÙ„ Ø¥Ù„Ù‰ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø³ØªÙˆÙŠØ§Øª Ø¨ØªÙƒÙ„ÙØ© Ù…Ø®ÙØ¶Ø©.",
+    title: "حزمة الكورية الشاملة",
+    desc: "وصول إلى جميع المستويات بتكلفة مخفضة.", 
   },
 ];
 
 import React from "react";
 
 export default function Courses() {
-  const [tab, setTab] = React.useState<"Ø§Ù„ÙŠØ§Ø¨Ø§Ù†ÙŠØ©" | "Ø§Ù„ÙƒÙˆØ±ÙŠØ©" | "Ø§Ù„ÙƒÙ„">("Ø§Ù„ÙŠØ§Ø¨Ø§Ù†ÙŠØ©");
-  const filtered = courses.filter((c) => (tab === "Ø§Ù„ÙƒÙ„" ? true : c.lang === tab));
+  const [tab, setTab] = React.useState<"اليابانية" | "الكورية" | "الكل">("اليابانية");
+  const filtered = courses.filter((c: Course) => (tab === "الكل" ? true : c.lang === tab));
 
   return (
     <section id="courses" className="py-20">
@@ -81,11 +90,11 @@ export default function Courses() {
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-4xl font-bold mb-8"
         >
-          Ø§Ù„Ø¯ÙˆØ±Ø§Øª
+          الدورات
         </motion.h2>
 
         <div className="mb-6 inline-flex rounded-full border border-white/10 bg-white/5 p-1">
-          {(["Ø§Ù„ÙƒÙ„", "Ø§Ù„ÙŠØ§Ø¨Ø§Ù†ÙŠØ©", "Ø§Ù„ÙƒÙˆØ±ÙŠØ©"] as const).map((t) => (
+          {(["الكل", "اليابانية", "الكورية"] as const).map((t) => (
             <button
               key={t}
               onClick={() => setTab(t)}
@@ -119,17 +128,17 @@ export default function Courses() {
                   </div>
 
                   <h3 className="text-lg font-semibold mb-1">{c.title}</h3>
-                  {"duration" in c && (
-                    <div className="text-xs text-white/60 mb-2">Ø§Ù„Ù…Ø¯Ø©: {(c as { duration?: string }).duration}</div>
+                  {c.duration && (
+                    <div className="text-xs text-white/60 mb-2">المدة: {c.duration}</div>
                   )}
                   <p className="text-sm text-white/70 mb-4 min-h-[44px]">{c.desc}</p>
-                  <div className="text-base text-white/90 font-semibold mb-3">{c.price} Ø±ÙŠØ§Ù„</div>
+                  <div className="text-base text-white/90 font-semibold mb-3">{c.price} ريال</div>
 
                   <a
-                    href={`https://wa.me/966538325090?text=${encodeURIComponent('Ù…Ø±Ø­Ø¨Ø§Ù‹ØŒ Ø£ÙˆØ¯ Ø§Ù„ØªØ³Ø¬ÙŠÙ„ ÙÙŠ Ø¯ÙˆØ±Ø© ' + c.title)}`}
+                    href={`https://wa.me/966538325090?text=${encodeURIComponent('مرحباً، أود التسجيل في دورة ' + c.title)}`}
                     className="inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white bg-[linear-gradient(90deg,var(--accent-start),var(--accent-end))] shadow-[0_0_20px_rgba(36,72,255,0.2)] hover:shadow-[0_0_35px_rgba(255,43,43,0.25)] transition"
                   >
-                    Ø³Ø¬Ù‘Ù„ Ø§Ù„Ø¢Ù†
+                    سجّل الآن
                   </a>
                 </div>
               </TiltCard>
