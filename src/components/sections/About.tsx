@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { Code2, Rocket, Layers } from "lucide-react";
 
 const items = [
-  { icon: Code2, title: "تعلم عملي", desc: "محتوى يعتمد على المشاريع والتطبيق الفعلي." },
-  { icon: Rocket, title: "مسارات سريعة", desc: "خطط تعلم مختصرة بمرشدين خبراء." },
-  { icon: Layers, title: "مجتمع نشط", desc: "دعم ومراجعات من متعلمين ومهنيين." },
+  { icon: Code2, title: "تعلم عملي", desc: "محتوى يعتمد على التطبيق الفعلي و المحادثات الواقعية والقواعد اللغوية التطبيقية" },
+  { icon: Rocket, title: "مسارات تعلم سريعة", desc: "خطط تعلم مختصرة بمرشدين خبراء." },
+  { icon: Layers, title: "مجتمع طلابي نشط", desc: "دعم ومراجعات من طلاب و معلمين." },
 ];
 
 export default function About() {
@@ -29,7 +29,7 @@ export default function About() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-white/80 max-w-3xl"
         >
-          Sorai Academy منصة حديثة تُقدّم تعلّمًا تفاعليًا يوازن بين الأساسيات المتينة والتطبيق العملي، لتمكينك من بناء منتجات حقيقية بثقة.
+          Sorai Academy منصة حديثة تُقدّم تعلّم لغات تفاعليًا يوازن بين الأساسيات المتينة والتطبيق العملي، لتمكينك من تحدث اللغة بكل ثقة.
         </motion.p>
 
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">

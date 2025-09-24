@@ -86,6 +86,7 @@ export default function Contact() {
             <div className="mt-8 flex items-center gap-4">
               <motion.a
                 href="https://www.instagram.com/_oaff.0x?igsh=cDQzMzY4d3k5ODdr&utm_source=qr"
+                target={"_blank"}
                 whileHover={{ scale: 1.08, boxShadow: "0 0 30px rgba(0,245,255,0.25)" }}
                 className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-white/10 border border-white/10"
               >
@@ -93,6 +94,7 @@ export default function Contact() {
               </motion.a>
               <motion.a
                 href="https://www.tiktok.com/@..202?_r=1&_d=egi2gk1m7ic1j5&sec_uid=MS4wLjABAAAAaXF-5-_RuQl2sHJ2T5ge3goIICceNhb8sB0-QcP3wNIoL2CGgXF6ZGUqDVWmfDjP&share_author_id=6776756095467176965&sharer_language=ar&source=h5_m&u_code=da59036lh872dl&ug_btm=b8727,b0&social_share_type=4&utm_source=copy&sec_user_id=MS4wLjABAAAAaXF-5-_RuQl2sHJ2T5ge3goIICceNhb8sB0-QcP3wNIoL2CGgXF6ZGUqDVWmfDjP&tt_from=copy&utm_medium=ios&utm_campaign=client_share&enable_checksum=1&user_id=6776756095467176965&share_link_id=20EBD123-8F0D-460D-BFB0-20FCDD351316&share_app_id=1233"
+                target={"_blank"}
                 whileHover={{ scale: 1.08, boxShadow: "0 0 30px rgba(0,245,255,0.25)" }}
                 className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-white/10 border border-white/10"
               >

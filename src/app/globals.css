@@ -1,83 +1,83 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  /* Sorai palette: cobalt blue → vivid red */
-  --accent-start: #2448FF; /* cobalt blue */
-  --accent-end: #FF2B2B;   /* vivid red */
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    /* Sorai palette: cobalt blue → vivid red */
+    --accent-start: #2448FF; /* cobalt blue */
+    --accent-end: #FF2B2B;   /* vivid red */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-arabic);
 }
 
 html, body {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+    background: var(--background);
+    color: var(--foreground);
 }
 
 /* Gradients */
 .gradient-text {
-  background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+    background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #070a12 0%, #0d0a10 100%);
+    background: linear-gradient(135deg, #070a12 0%, #0d0a10 100%);
 }
 
 /* Subtle animated blobs background utility */
 .animated-blobs:before,
 .animated-blobs:after {
-  content: "";
-  position: absolute;
-  inset: auto;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.18;
-  z-index: -1;
+    content: "";
+    position: absolute;
+    inset: auto;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.18;
+    z-index: -1;
 }
 .animated-blobs:before {
-  background: radial-gradient(circle at 30% 30%, var(--accent-start), transparent 60%);
-  top: -120px;
-  left: -120px;
-  animation: blob 16s ease-in-out infinite;
+    background: radial-gradient(circle at 30% 30%, var(--accent-start), transparent 60%);
+    top: -120px;
+    left: -120px;
+    animation: blob 16s ease-in-out infinite;
 }
 .animated-blobs:after {
-  background: radial-gradient(circle at 70% 70%, var(--accent-end), transparent 60%);
-  bottom: -100px;
-  right: -100px;
-  animation: blob 20s ease-in-out infinite reverse;
+    background: radial-gradient(circle at 70% 70%, var(--accent-end), transparent 60%);
+    bottom: -100px;
+    right: -100px;
+    animation: blob 20s ease-in-out infinite reverse;
 }
 
 @keyframes blob {
-  0%, 100% { transform: translate3d(0,0,0) scale(1); }
-  50% { transform: translate3d(30px, -20px, 0) scale(1.08); }
+    0%, 100% { transform: translate3d(0,0,0) scale(1); }
+    50% { transform: translate3d(30px, -20px, 0) scale(1.08); }
 }
 
 /* Lenis base (smooth scroll) */
 html.lenis, html.lenis body {
-  height: auto;
+    height: auto;
 }
 .html.lenis body {}
 .lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+    scroll-behavior: auto !important;
 }
 .lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+    overscroll-behavior: contain;
 }
 .lenis.lenis-stopped {}
 .lenis.lenis-scrolling iframe {
-  pointer-events: none;
+    pointer-events: none;
 }
