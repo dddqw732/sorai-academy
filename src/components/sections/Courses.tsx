@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import TiltCard from "@/components/ui/TiltCard";
 
@@ -70,11 +71,9 @@ const courses: Course[] = [
     level: "جميع المستويات",
     price: 350,
     title: "حزمة الكورية الشاملة",
-    desc: "وصول إلى جميع المستويات بتكلفة مخفضة.", 
+    desc: "وصول إلى جميع المستويات بتكلفة مخفضة.",
   },
 ];
-
-import React from "react";
 
 export default function Courses() {
   const [tab, setTab] = React.useState<"اليابانية" | "الكورية" | "الكل">("اليابانية");
